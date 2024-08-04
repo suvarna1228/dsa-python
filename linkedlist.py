@@ -62,9 +62,11 @@ class linkedlist:
         if self.head is None:
             new_node=Node(data)
             self.head=new_node
+    def delete_begin(self):
+        if self.head is None:
+            print("ll is empty so we cant delete nodes!")
         else:
-            print("ll is not empty!")
-
+            self.head = self.head.ref 
 
 ll1=linkedlist()
 ll1.add_begin(10)
@@ -75,4 +77,5 @@ ll1.insert_empty(10)
 ll1.add_begin(30)
 ll1.add_after(200,100)
 ll1.add_before(20,10)
+ll1.delete_begin()
 ll1.print_ll()
