@@ -28,8 +28,13 @@ class doublyLL:
            while n.pref is not None:
                print(n.data)
                n=n.pref
-
+    def insert_empty(self,data):
+        if self.head is None:
+            new_node = Node(data)
+            self.head = new_node
+        else:
+            print("linked list is not empty!")
 
 dl1 = doublyLL()
-
+dl1.insert_empty(10)
 dl1.print_ll()
