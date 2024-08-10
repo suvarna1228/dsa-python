@@ -99,12 +99,23 @@ class doublyLL:
         else:                                            
             self.head = self.head.nref
             self.head.pref = None
-
-
+    def delete_end(self):
+        if self.head is None:
+            print("linked list can't delete!")
+            return
+        if self.head.nref is None:
+            self.head = None
+            print("linked list is empty after deleting the node!")
+        else: 
+           n = self.head
+           while n.nref is not None: 
+                n==n.nref
+           n.pref.nref = None
+                                                        
 dl1 = doublyLL()
 dl1.add_begin(4)
 dl1.add_before(10,4)
 dl1.add_begin(5)
-dl1.delete_begin()
+dl1.delete_end()
 #dl1.print_ll_reverse()
 dl1.print_ll()
