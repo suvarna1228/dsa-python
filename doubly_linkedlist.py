@@ -68,7 +68,7 @@ class doublyLL:
              new_node.nref = n.nref
              new_node.pref = n
              if n.nref is not None:
-                 n.nref.pref=new_node
+                n.nref.pref=new_node
              n.nref=new_node
     def add_before(self,data,x):
         if self.head is None:
@@ -89,15 +89,22 @@ class doublyLL:
             else:
                 self.head = new_node
                 n.pref = new_node
-                                              
-
-
-
-
+    def delete_begin(self):
+        if self.head is None:
+            print("linked list can't delete!")
+            return
+        if self.head.nref is None:
+            self.head = None
+            print("linked list is empty after deleting the node!")
+        else:                                            
+            self.head = self.head.nref
+            self.head.pref = None
 
 
 dl1 = doublyLL()
 dl1.add_begin(4)
 dl1.add_before(10,4)
-dl1.print_ll_reverse()
+dl1.add_begin(5)
+dl1.delete_begin()
+#dl1.print_ll_reverse()
 dl1.print_ll()
