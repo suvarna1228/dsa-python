@@ -23,15 +23,26 @@ class circularll:
            new_node.ref = self.head
         else:
             new_node.ref= self.head
-            temp = self.head
-            while temp.ref != self.head:
-                temp = temp.ref
-            temp.ref= new_node
+            n = self.head
+            while n.ref != self.head:
+                n = n.ref
+            n.ref= new_node
             self.head = new_node
+    def add_end(self,data):
+        new_node=Node(data)
+        if self.head is None:
+           self.head=new_node
+           new_node.ref = self.head
+        else:
+            n = self.head
+            while n.ref != self.head:
+                n = n.ref
+            n.ref= new_node
+            new_node.ref =self.head
 cl1 = circularll()
 cl1.add_begin(4)
 #dl1.add_before(10,4)
-#dl1.add_begin(5)
+cl1.add_end(5)
 #dl1.delete_end()
 #dl1.print_ll_reverse()
 cl1.print_ll()
