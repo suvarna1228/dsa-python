@@ -19,10 +19,24 @@ class bst:
                 self.rchild.insert(data)
             else:
                 self.rchild=bst(data)
+    def search(self,data):
+        if self.key == data:
+           print("node is found")
+           return
+        if data < self.key:
+            if self.lchild:
+                self.lchild.search(data)
+            else:
+                print("node is not present")
+        else:
+            if self.rchild:
+                self.rchild.search(data)
+            else:
+                print("node is not present")
+
+
 root=bst(10)
 list1=[20,4,50,45,1,4,6]
 for i in list1:
   root.insert(i)
-print(root.key)
-print(root.lchild)
-print(root.rchild)
+root.search(20)
