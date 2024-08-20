@@ -45,6 +45,12 @@ class bst:
         print(self.key,end=" ")
         if self.rchild:
             self.rchild.inorder()
+    def postorder(self):
+        if self.lchild:
+            self.lchild.postorder()
+        if self.rchild:
+            self.rchild.postorder()
+        print(self.key,end=" ")    
 root=bst(10)
 list1=[20,4,50,45,1,4,6]
 for i in list1:
@@ -54,3 +60,6 @@ root.preorder()
 print()
 print("inorder")
 root.inorder()
+print()
+print("postorder")
+root.postorder()
