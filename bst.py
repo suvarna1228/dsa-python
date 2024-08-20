@@ -33,10 +33,15 @@ class bst:
                 self.rchild.search(data)
             else:
                 print("node is not present")
-
+    def preorder(self):
+        print(self.key)
+        if self.lchild:
+            self.lchild.preorder()
+        if self.rchild:
+            self.rchild.preorder()
 
 root=bst(10)
 list1=[20,4,50,45,1,4,6]
 for i in list1:
   root.insert(i)
-root.search(20)
+root.preorder()
