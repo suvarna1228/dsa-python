@@ -51,38 +51,56 @@ class bst:
         if self.rchild:
             self.rchild.postorder()
         print(self.key,end=" ") 
-    def delete(self,data):
+    def delete(self,data,curr):
         if self.key is None:
            print("tree is empty")
            return
         if data<self.key:
             if self.lchild:
-                self.lchild=self.lchild.delete(data)
+                self.lchild=self.lchild.delete(data,curr)
             else:
                 print("given node is not present in the tree")
         elif data>self.key:
             if self.rchild:
-                self.rchild=self.rchild.delete(data)
+                self.rchild=self.rchild.delete(data,curr)
             else:
                 print("given node is not present in the tree")
         else:
             if self.lchild is None:
                 temp=self.rchild
+                if curr==data:
+                    self.key=temp.key
+                    self.lchild=temp.lchild
+                    self.rchild=temp.rchild
+                    temp=None
+                    return
                 self=None
                 return temp
             if self.rchild is None:
-                temp=self.lchildself=None
+                temp=self.lchild
+                if data==curr:
+                    self.key=temp.key
+                    self.lchild=temp.lchild
+                    self.rchild=temp.rchild
+                    temp=None
+                    return
+                self=None
                 return temp
             node=self.rchild
             while node.lchild:
                 node=node.lchild
             self.key=node.key
-            self.rchild=self.rchild.delete(data)
+            self.rchild=self.rchild.delete(node.key,curr)
         return self
+def count (node):
+    if node is None:
+        return 0
+    return 1+count(node.lchild)+count(node.rchild) 
 root=bst(10)
 list1=[20,4,50,45,1,4,6]
 for i in list1:
   root.insert(i)
+print(count(root))
 print("preorder")
 root.preorder()
 print()
@@ -91,6 +109,9 @@ print()
 # print()
 # print("postorder")
 # root.postorder()
-root.delete(20)
+if count(root)>1:
+   root.delete(20,root.key)
+else:
+    print("can't perform deletion")
 print("after deletion")
 root.preorder()
