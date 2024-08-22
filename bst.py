@@ -92,6 +92,16 @@ class bst:
             self.key=node.key
             self.rchild=self.rchild.delete(node.key,curr)
         return self
+    def min(self):
+        current=self
+        while current.lchild:
+           current=current.lchild
+        print("node with smallest key is:",current.key)
+    def max(self):
+       current=self
+       while current.rchild:
+           current=current.rchild
+       print("node with largest key is:",current.key) 
 def count (node):
     if node is None:
         return 0
@@ -109,9 +119,12 @@ print()
 # print()
 # print("postorder")
 # root.postorder()
-if count(root)>1:
-   root.delete(20,root.key)
-else:
-    print("can't perform deletion")
-print("after deletion")
+#if count(root)>1:
+   #root.delete(20,root.key)
+#else:
+    #print("can't perform deletion")
+#print("after deletion")
 root.preorder()
+print()
+root.max()
+root.min()
