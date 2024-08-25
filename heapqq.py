@@ -1,0 +1,18 @@
+import heapq
+heap=[]
+heapq.heappush(heap,10)
+heapq.heappush(heap,1)
+heapq.heappush(heap,5)
+print(heap)
+heapq.heappop(heap)
+print(heap)
+heapq.heappushpop(heap,89)
+print(heap)
+heapq.heapreplace(heap,100)
+print(heap)
+heapq.heappush(heap,10)
+heapq.heappush(heap,1)
+heapq.heappush(heap,11)
+heapq.heappush(heap,16)
+print(heapq.nsmallest(2,heap))
+print(heapq.nlargest(2,heap))
