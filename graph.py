@@ -11,11 +11,6 @@ def add_node(f):
         for i in range(node_count):
             temp.append(0)
         graph.append(temp)
-def print_graph():
-    for i in range (node_count):
-        for j in range(node_count):
-            print(graph[i][j],end=" ")
-        print()
 def add_edge(v1,v2):
     if v1  not in nodes:
         print(v1,"is not present in the graph")
@@ -26,6 +21,22 @@ def add_edge(v1,v2):
         index2=nodes.index(v2)
         graph[index1][index2]=1
         graph[index2][index1]=1
+def delete_node(v):
+    global node_count
+    if v not in nodes:
+        print(v,"is not present in the graph")
+    else:
+        index1=nodes.index(v)
+        node_count=node_count-1
+        nodes.remove(v)
+        graph.pop(index1)
+        for i in graph:
+            i.pop(index1)
+def print_graph():
+    for i in range (node_count):
+        for j in range(node_count):
+            print(graph[i][j],end=" ")
+        print()
 
 nodes=[]
 graph=[]
@@ -38,7 +49,8 @@ add_node("b")
 add_node("c")
 add_node("d")
 add_node("e")
-add_edge("a","b")
+add_edge("a","b",)
+delete_node("a")
 print("after adding nodes")
 print(nodes)
 print(graph)
