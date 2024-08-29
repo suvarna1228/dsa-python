@@ -16,6 +16,17 @@ def print_graph():
         for j in range(node_count):
             print(graph[i][j],end=" ")
         print()
+def add_edge(v1,v2):
+    if v1  not in nodes:
+        print(v1,"is not present in the graph")
+    elif v2 not in nodes:
+        print(v2,"is not present in the graph")
+    else:
+        index1=nodes.index(v1)
+        index2=nodes.index(v2)
+        graph[index1][index2]=1
+        graph[index2][index1]=1
+
 nodes=[]
 graph=[]
 node_count=0
@@ -27,6 +38,7 @@ add_node("b")
 add_node("c")
 add_node("d")
 add_node("e")
+add_edge("a","b")
 print("after adding nodes")
 print(nodes)
 print(graph)
