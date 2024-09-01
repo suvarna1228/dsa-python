@@ -20,12 +20,28 @@ def delete_node(v):
         graph.pop(v)
         for i in graph:
             list1=graph[i]
-            if v in list1:
-                list1.remove(v)
+            for j in list1:
+             if v ==j[0]:
+                list1.remove(j)
+                break
 
 graph={}
 add_node("a")
 add_node("b")
+add_node("c")
+add_node("d")
+add_node("f")
+
 add_edge("a","b",10)
-delete_node("a")
+add_edge("b","e",3)
+add_edge("a","c",5)
+add_edge("a","d",4)
+add_edge("b","d",7)
+add_edge("c","d",1)
+add_edge("e","d",2)
+
+
+print(graph)
+delete_node("c")
+print()
 print(graph)
