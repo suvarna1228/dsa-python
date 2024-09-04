@@ -33,6 +33,7 @@ def delete_edge(v1,v2):
         if v2 in graph [v1]:
                 graph[v1].remove(v2)
                 graph[v2].remove(v1)
+                
 graph={}
 add_node("a")
 add_node("b")
