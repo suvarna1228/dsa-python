@@ -14,15 +14,30 @@ def add_edge(v1,v2):
         graph[v1].append(v1)
         graph[v2].append(v2)
 
-def dfs(node,visited,graph):
+# def dfs(node,visited,graph):
+#     if node  not in graph:
+#         print("node is not present in the graph")
+#         return
+#     if node not in visited:
+#         print( node)
+#         visited.add(node)
+#         for i in graph[node]:
+#             dfs(i,visited,graph)
+def dfsiterative(node,graph):
+    visited=set()
     if node  not in graph:
-        print("node is not present in the graph")
-        return
-    if node not in visited:
-        print( node)
-        visited.add(node)
-        for i in graph[node]:
-            dfs(i,visited,graph)
+         print("node is not present in the graph")
+         return
+    stack=[]
+    stack.append(node)
+    while stack:
+        current=stack.pop()
+        if current not in visited:
+          print(current)
+          visited.add(current)
+          for i in graph[current]:
+              stack.append(i)
+
 
 visited=set()
 graph={}
@@ -40,4 +55,4 @@ add_edge("b","d")
 add_edge("c","d")
 add_edge("e","d")
 print(graph)
-dfs("a",visited,graph)
+dfsiterative("a",graph)
